@@ -1,10 +1,6 @@
 #![allow(dead_code)]
-
-// use std::rc::Rc;
-// use std::cell::RefCell;
 use std::collections::VecDeque;
 
-// type Buffer<T> = Rc<RefCell<VecDeque<T>>>;
 pub type Merger<T> = Option<Box<Funnel<T>>>;
 
 pub struct Funnel<T> {
@@ -43,13 +39,6 @@ impl<T: Ord> Funnel<T> {
         while !self.lbuf.is_empty() || !self.rbuf.is_empty() {
             self.merge();
         }
-        // loop {
-        //     if self.lbuf.is_empty() && self.rbuf.is_empty() {
-        //         break;
-        //     } else {
-        //         self.merge();
-        //     }
-        // }
     }
 
     fn merge(&mut self) {
